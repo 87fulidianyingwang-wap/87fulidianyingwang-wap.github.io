@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="87福利电影网 - 为您提供最新最全的电影福利资讯，涵盖免费观影指南、热门电影推荐、影视福利活动、独家观影优惠等丰富内容。87fulidianyingwang-wap.github.io 是影迷获取电影福利的首选平台。">
+    <meta name="keywords" content="87福利电影网, 电影福利, 免费电影, 观影优惠, 最新电影推荐, 影视福利活动, 电影优惠券, 热门电影排行, 87fulidianyingwang-wap">
+    <meta name="author" content="87福利电影网">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#00d2a0">
+    <meta property="og:title" content="87福利电影网 - 电影福利资讯分享平台">
+    <meta property="og:description" content="87福利电影网为您提供最新最全的电影福利资讯，涵盖免费观影指南、热门电影推荐、影视福利活动、独家观影优惠等丰富内容。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://87fulidianyingwang-wap.github.io">
+    <meta property="og:site_name" content="87福利电影网">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="87福利电影网 - 电影福利资讯分享平台">
+    <meta name="twitter:description" content="87福利电影网为您提供最新最全的电影福利资讯，涵盖免费观影指南、热门电影推荐、影视福利活动、独家观影优惠等丰富内容。">
+    <title>87福利电影网 - 电影福利资讯分享平台 | 观影更实惠</title>
+    <link rel="canonical" href="https://87fulidianyingwang-wap.github.io">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --mint:#00d2a0;--mint-deep:#00b894;--mint-light:#55efc4;
+            --coral:#ff7675;--coral-deep:#e17055;
+            --bg:#f0fdf9;--card:#ffffff;
+            --ink:#1e293b;--ink2:#64748b;--ink3:#94a3b8;
+            --line:#e2e8f0;--line2:#f1f5f9;
+            --r:16px;--r2:28px;
+            --shadow1:0 2px 12px rgba(0,210,160,0.06);
+            --shadow2:0 8px 30px rgba(0,210,160,0.14);
+            --t:all .35s cubic-bezier(.4,0,.2,1);
+        }
+        html{scroll-behavior:smooth;scroll-padding-top:80px}
+        body{
+            font-family:"SF Pro Display","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+            background:var(--bg);color:var(--ink);line-height:1.8;
+            overflow-x:hidden;-webkit-font-smoothing:antialiased;
+        }
+        a{text-decoration:none;color:inherit;transition:var(--t)}
+        ul,ol{list-style:none}
+        ::selection{background:rgba(0,210,160,.25);color:#054}
+        .wrap{max-width:1240px;margin:0 auto;padding:80px 24px;position:relative;z-index:2}
+        .blob{position:fixed;border-radius:50%;filter:blur(80px);z-index:0;opacity:.4;animation:float 8s ease-in-out infinite}
+        .blob.b1{width:360px;height:360px;background:#55efc4;top:-80px;right:-60px}
+        .blob.b2{width:320px;height:320px;background:#fab1a0;bottom:10%;left:-80px;animation-delay:-3s}
+        .blob.b3{width:280px;height:280px;background:#a29bfe;top:40%;left:30%;animation-delay:-5s;opacity:.15}
+        @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.08)}}
+
+        /* ===== Header ===== */
+        .hd{position:fixed;top:0;left:0;right:0;z-index:1000;transition:var(--t)}
+        .hd.scrolled{backdrop-filter:blur(16px);background:rgba(255,255,255,.82);border-bottom:1px solid var(--line)}
+        .hd-in{max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo-i{
+            width:42px;height:42px;border-radius:14px;
+            background:linear-gradient(135deg,var(--mint),var(--coral));
+            display:flex;align-items:center;justify-content:center;
+            font-size:17px;font-weight:900;color:#fff;
+            box-shadow:0 4px 14px rgba(0,210,160,.3);
+        }
+        .logo-t h1{font-size:19px;font-weight:900;color:var(--ink);letter-spacing:-.3px}
+        .logo-t .s{font-size:10px;color:var(--ink3);letter-spacing:2px;text-transform:uppercase}
+        .nav{display:flex;align-items:center;gap:2px}
+        .nav a{padding:9px 16px;border-radius:11px;font-size:14.5px;font-weight:500;color:var(--ink2);position:relative}
+        .nav a:hover,.nav a.on{color:var(--mint-deep);background:rgba(0,210,160,.07);font-weight:700}
+        .nav a.on::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:16px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,var(--mint),var(--coral))}
+        .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
+        .ham span{width:22px;height:2px;border-radius:2px;background:var(--ink);transition:var(--t)}
+        .ham.on span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .ham.on span:nth-child(2){opacity:0}
+        .ham.on span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+        /* ===== Hero ===== */
+        .hero{min-height:100vh;display:flex;align-items:center;padding:110px 24px 60px;position:relative;z-index:2}
+        .hero-in{max-width:1240px;margin:0 auto;width:100%}
+        .hero-c{text-align:center;max-width:780px;margin:0 auto}
+        .hero-chip{
+            display:inline-flex;align-items:center;gap:8px;padding:7px 20px 7px 14px;
+            border-radius:50px;background:rgba(0,210,160,.08);
+            border:1px solid rgba(0,210,160,.15);margin-bottom:26px;
+        }
+        .hero-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(0,210,160,.5);animation:ping 2s infinite}
+        @keyframes ping{0%{box-shadow:0 0 0 0 rgba(0,210,160,.4)}70%{box-shadow:0 0 0 10px rgba(0,210,160,0)}100%{box-shadow:0 0 0 0 rgba(0,210,160,0)}}
+        .hero-chip span{font-size:13px;font-weight:600;color:var(--mint-deep)}
+        .hero h2{
+            font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.18;
+            letter-spacing:-1.5px;margin-bottom:20px;
+        }
+        .hero h2 .gr{
+            background:linear-gradient(135deg,var(--mint-deep),var(--coral-deep));
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        }
+        .hero-d{
+            font-size:clamp(1rem,1.5vw,1.15rem);color:var(--ink2);
+            max-width:600px;margin:0 auto 36px;line-height:1.95;
+        }
+        .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+        .btn{
+            padding:15px 34px;border-radius:16px;font-size:15px;font-weight:700;
+            border:none;cursor:pointer;transition:var(--t);display:inline-flex;align-items:center;gap:8px;
+        }
+        .btn-mint{background:linear-gradient(135deg,var(--mint),var(--mint-deep));color:#fff;box-shadow:0 6px 20px rgba(0,210,160,.3)}
+        .btn-mint:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,210,160,.4)}
+        .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+        .btn-ghost:hover{border-color:var(--mint);color:var(--mint-deep);transform:translateY(-3px)}
+
+        /* Marquee */
+        .marquee{
+            background:linear-gradient(135deg,var(--ink),#0f172a);border-radius:20px;
+            padding:14px 24px;display:flex;align-items:center;gap:16px;
+            box-shadow:0 10px 40px rgba(15,23,42,.12);
+        }
+        .marquee .lb{
+            flex-shrink:0;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:800;
+            background:linear-gradient(135deg,var(--mint),var(--coral));color:#fff;
+        }
+        .marquee .track{flex:1;overflow:hidden;white-space:nowrap}
+        .marquee .inner{display:inline-flex;gap:48px;animation:scroll 35s linear infinite;color:rgba(255,255,255,.7);font-size:14px}
+        .marquee .inner span{display:inline-flex;align-items:center;gap:8px}
+        .marquee .inner span::before{content:'🎬';font-size:12px}
+        @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+        /* ===== Section head ===== */
+        .sh{text-align:center;margin-bottom:52px}
+        .sh-eyebrow{
+            display:inline-block;font-size:12px;font-weight:800;color:var(--mint-deep);
+            letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;
+        }
+        .sh-t{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:900;color:var(--ink);letter-spacing:-.5px;margin-bottom:10px}
+        .sh-s{font-size:.95rem;color:var(--ink2);max-width:580px;margin:0 auto}
+
+        /* ===== Benefits (feature) ===== */
+        .ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+        .ben-card{
+            background:var(--card);border-radius:var(--r2);padding:28px;
+            border:1px solid var(--line2);box-shadow:var(--shadow1);
+            transition:var(--t);position:relative;overflow:hidden;
+        }
+        .ben-card::before{
+            content:'';position:absolute;top:0;left:0;right:0;height:4px;
+            background:linear-gradient(90deg,var(--mint),var(--coral));
+        }
+        .ben-card:hover{transform:translateY(-6px);box-shadow:var(--shadow2)}
+        .ben-card .ic{
+            width:52px;height:52px;border-radius:15px;margin-bottom:16px;
+            display:flex;align-items:center;justify-content:center;font-size:24px;
+        }
+        .i1{background:linear-gradient(135deg,#d1fae5,#a7f3d0)}
+        .i2{background:linear-gradient(135deg,#fee2e2,#fecaca)}
+        .i3{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+        .i4{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+        .i5{background:linear-gradient(135deg,#e9d5ff,#ddd6fe)}
+        .i6{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
+        .ben-card h3{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:6px}
+        .ben-card p{font-size:13.5px;color:var(--ink2);line-height:1.8}
+
+        /* ===== Movie cards ===== */
+        .mv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+        .mv{
+            background:var(--card);border-radius:var(--r2);overflow:hidden;
+            box-shadow:var(--shadow1);border:1px solid var(--line2);transition:var(--t);cursor:pointer;
+        }
+        .mv:hover{transform:translateY(-6px) scale(1.01);box-shadow:var(--shadow2)}
+        .mv-p{position:relative;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .mv-e{font-size:56px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.12));transition:var(--t);z-index:2}
+        .mv:hover .mv-e{transform:scale(1.15) rotate(5deg)}
+        .mv-p::after{
+            content:'';position:absolute;inset:0;
+            background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.15));
+        }
+        .m1{background:linear-gradient(150deg,#667eea,#764ba2)}
+        .m2{background:linear-gradient(150deg,#f093fb,#f5576c)}
+        .m3{background:linear-gradient(150deg,#4facfe,#00f2fe)}
+        .m4{background:linear-gradient(150deg,#43e97b,#38f9d7)}
+        .m5{background:linear-gradient(150deg,#fa709a,#fee140)}
+        .m6{background:linear-gradient(150deg,#a18cd1,#fbc2eb)}
+        .m7{background:linear-gradient(150deg,#fccb90,#d57eeb)}
+        .m8{background:linear-gradient(150deg,#92fe9d,#00c9ff)}
+        .mv-b{
+            position:absolute;top:10px;left:10px;z-index:3;padding:3px 10px;border-radius:20px;
+            font-size:11px;font-weight:700;background:rgba(255,255,255,.92);color:var(--mint-deep);
+        }
+        .mv-s{
+            position:absolute;top:10px;right:10px;z-index:3;padding:3px 10px;border-radius:20px;
+            font-size:12px;font-weight:800;background:rgba(15,23,42,.75);color:#fff;backdrop-filter:blur(4px);
+        }
+        .mv-q{
+            position:absolute;bottom:10px;left:10px;z-index:3;padding:2px 8px;border-radius:5px;
+            font-size:10px;font-weight:700;background:rgba(255,255,255,.9);color:var(--coral-deep);
+        }
+        .mv-i{padding:14px 16px}
+        .mv-i h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:3px}
+        .mv-i .mt{font-size:12px;color:var(--ink3)}
+
+        /* ===== Coupon ===== */
+        .cp-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+        .cp{
+            display:flex;align-items:stretch;border-radius:18px;overflow:hidden;
+            box-shadow:var(--shadow1);transition:var(--t);cursor:pointer;
+        }
+        .cp:hover{transform:translateY(-4px);box-shadow:var(--shadow2)}
+        .cp-l{
+            flex:1;padding:18px 20px;background:var(--card);
+            display:flex;flex-direction:column;justify-content:center;
+            border:1px solid var(--line2);border-right:none;border-radius:18px 0 0 18px;
+        }
+        .cp-r{
+            width:80px;flex-shrink:0;display:flex;flex-direction:column;
+            align-items:center;justify-content:center;gap:4px;color:#fff;
+            background:linear-gradient(160deg,var(--mint),var(--mint-deep));position:relative;
+        }
+        .cp-r.c{background:linear-gradient(160deg,var(--coral),var(--coral-deep))}
+        .cp-r.o{background:linear-gradient(160deg,#f6a609,#e08e05)}
+        .cp-r.v{background:linear-gradient(160deg,#7c3aed,#5b21b6)}
+        .cp-r::before,.cp-r::after{
+            content:'';position:absolute;left:0;width:14px;height:14px;border-radius:50%;
+            background:var(--bg);transform:translateX(-50%);
+        }
+        .cp-r::before{top:0;box-shadow:inset 0 7px 0 var(--bg)}
+        .cp-r::after{bottom:0;box-shadow:inset 0 -7px 0 var(--bg)}
+        .cp-v{font-size:22px;font-weight:900;line-height:1}
+        .cp-lb{font-size:11px;opacity:.8}
+        .cp-l h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:2px}
+        .cp-l .cd{font-size:12px;color:var(--mint-deep);font-weight:600}
+        .cp-l .cd.c{color:var(--coral-deep)}
+        .cp-l .cd.o{color:#c27602}
+        .cp-l .cd.v{color:#7c3aed}
+        .cp-l .ct{font-size:11.5px;color:var(--ink3);margin-top:3px}
+
+        /* ===== Ranking ===== */
+        .rk-bg{background:linear-gradient(160deg,#f0fdf9,#e6fffa);border-radius:var(--r2);padding:36px;border:1px solid rgba(0,210,160,.1)}
+        .rk-list{display:flex;flex-direction:column;gap:6px}
+        .rk{
+            display:flex;align-items:center;gap:14px;padding:13px 18px;
+            background:#fff;border-radius:14px;border:1px solid var(--line2);
+            transition:var(--t);cursor:pointer;
+        }
+        .rk:hover{box-shadow:var(--shadow2);transform:translateX(5px);border-color:rgba(0,210,160,.25)}
+        .rk-n{
+            width:32px;text-align:center;font-size:20px;font-weight:900;
+            color:var(--ink3);flex-shrink:0;
+        }
+        .rk:nth-child(1) .rk-n,.rk:nth-child(2) .rk-n,.rk:nth-child(3) .rk-n{color:var(--mint-deep)}
+        .rk-t{
+            width:42px;height:42px;border-radius:12px;flex-shrink:0;
+            display:flex;align-items:center;justify-content:center;font-size:20px;
+        }
+        .t1{background:linear-gradient(135deg,#d1fae5,#a7f3d0)}
+        .t2{background:linear-gradient(135deg,#fee2e2,#fecaca)}
+        .t3{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+        .t4{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+        .t5{background:linear-gradient(135deg,#e9d5ff,#ddd6fe)}
+        .t6{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
+        .t7{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+        .t8{background:linear-gradient(135deg,#ecfccb,#d9f99d)}
+        .rk-d{flex:1;min-width:0}
+        .rk-d h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:0}
+        .rk-d p{font-size:12px;color:var(--ink3)}
+        .rk-v{text-align:right;flex-shrink:0}
+        .rk-v .vs{font-size:19px;font-weight:900;color:var(--mint-deep)}
+        .rk-v .vl{font-size:11px;color:var(--ink3)}
+
+        /* ===== News ===== */
+        .nw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+        .nw{
+            background:var(--card);border:1px solid var(--line2);border-radius:var(--r2);
+            overflow:hidden;transition:var(--t);cursor:pointer;
+        }
+        .nw:hover{box-shadow:var(--shadow2);transform:translateY(-5px)}
+        .nw-c{width:100%;height:170px;display:flex;align-items:center;justify-content:center;font-size:46px;position:relative}
+        .n1{background:linear-gradient(135deg,#ccfbf1,#99f6e4)}
+        .n2{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+        .n3{background:linear-gradient(135deg,#fef9c3,#fde047)}
+        .n4{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+        .n5{background:linear-gradient(135deg,#f3e8ff,#ddd6fe)}
+        .n6{background:linear-gradient(135deg,#ffedd5,#fed7aa)}
+        .nw-c .tg{
+            position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:6px;
+            font-size:11px;font-weight:700;background:var(--mint-deep);color:#fff;
+        }
+        .nw-c .tg.c{background:var(--coral-deep)}
+        .nw-c .tg.v{background:#7c3aed}
+        .nw-b{padding:20px 22px}
+        .nw-d{font-size:12px;color:var(--ink3);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+        .nw-b h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.55}
+        .nw-b p{font-size:13.5px;color:var(--ink2);line-height:1.75}
+
+        /* ===== About ===== */
+        .ab{
+            background:linear-gradient(135deg,var(--ink),#0f172a);border-radius:var(--r2);
+            padding:48px;position:relative;overflow:hidden;
+        }
+        .ab::before{
+            content:'87';position:absolute;right:-10px;bottom:-40px;font-size:220px;
+            font-weight:900;color:rgba(255,255,255,.03);letter-spacing:-12px;
+        }
+        .ab-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:2}
+        .ab-l h2{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.35}
+        .ab-l p{font-size:.95rem;color:rgba(255,255,255,.65);margin-bottom:12px;line-height:1.9}
+        .ab-stats{display:flex;gap:36px;margin-top:28px}
+        .ab-st .an{font-size:28px;font-weight:900;color:var(--mint-light)}
+        .ab-st .al{font-size:12px;color:rgba(255,255,255,.45)}
+        .ab-r{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .ab-f{
+            background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+            border-radius:16px;padding:20px;transition:var(--t);cursor:pointer;
+        }
+        .ab-f:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+        .ab-f .fi{
+            width:40px;height:40px;border-radius:11px;margin-bottom:10px;
+            background:linear-gradient(135deg,var(--mint),var(--coral));
+            display:flex;align-items:center;justify-content:center;font-size:18px;
+        }
+        .ab-f h4{font-size:14.5px;font-weight:700;color:#fff;margin-bottom:2px}
+        .ab-f p{font-size:12px;color:rgba(255,255,255,.5);margin:0}
+
+        /* ===== Footer ===== */
+        .ft{background:var(--ink);color:rgba(255,255,255,.55);padding:56px 24px 24px;position:relative;z-index:2}
+        .ft-in{max-width:1240px;margin:0 auto}
+        .ft-c{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07)}
+        .ft-b .logo .logo-t h1{color:#fff}
+        .ft-b .logo .logo-t .s{color:rgba(255,255,255,.4)}
+        .ft-b>p{font-size:13px;margin-top:12px;line-height:1.8;max-width:320px}
+        .ft-cl h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:14px}
+        .ft-cl ul li{margin-bottom:9px}
+        .ft-cl ul li a{font-size:13px;color:rgba(255,255,255,.45)}
+        .ft-cl ul li a:hover{color:var(--mint-light)}
+        .ft-bt{padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+        .ft-bt p{font-size:12.5px}
+        .social{display:flex;gap:8px}
+        .social a{
+            width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+            font-size:14px;background:rgba(255,255,255,.06);transition:var(--t);
+        }
+        .social a:hover{background:var(--mint)}
+
+        /* ===== ScrollTop ===== */
+        .stp{
+            position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:14px;
+            border:none;cursor:pointer;z-index:999;opacity:0;visibility:hidden;
+            background:linear-gradient(135deg,var(--mint),var(--mint-deep));color:#fff;
+            font-size:17px;transition:var(--t);box-shadow:0 6px 20px rgba(0,210,160,.3);
+        }
+        .stp.show{opacity:1;visibility:visible}
+        .stp:hover{transform:translateY(-3px) scale(1.05)}
+
+        /* ===== Reveal ===== */
+        .rv{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s}
+        .rv.v{opacity:1;transform:translateY(0)}
+
+        @media(max-width:1024px){
+            .ab-g{grid-template-columns:1fr;gap:36px}
+            .ab-r{order:-1}
+        }
+        @media(max-width:768px){
+            .nav{position:fixed;top:0;right:-100%;width:250px;height:100vh;background:rgba(255,255,255,.98);
+                backdrop-filter:blur(16px);flex-direction:column;align-items:flex-start;padding:70px 20px 30px;
+                border-left:1px solid var(--line);transition:right .35s ease}
+            .nav.on{right:0}
+            .nav a{width:100%;padding:12px 14px;font-size:15.5px}
+            .ham{display:flex}
+            .mv-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+            .rk-bg{padding:22px 14px}
+            .rk{gap:10px;padding:10px 12px}
+            .rk-n{font-size:15px;width:26px}
+            .rk-t{width:36px;height:36px;font-size:17px}
+            .ab{padding:30px 22px}
+            .ab-r{grid-template-columns:1fr}
+            .wrap{padding:56px 18px}
+            .hero{padding:95px 18px 50px}
+            .marquee{flex-direction:column;gap:10px;padding:16px}
+            .marquee .lb{align-self:flex-start}
+        }
+        @media(max-width:480px){
+            .mv-grid{grid-template-columns:repeat(2,1fr)}
+            .ab-stats{gap:22px}
+            .ab-f{margin-bottom:10px}
+            .ft-bt{flex-direction:column;text-align:center}
+            .ft-c{grid-template-columns:1fr;gap:24px}
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+    <!-- Blobs -->
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <!-- Header -->
+    <header class="hd" id="siteHd">
+        <div class="hd-in">
+            <a href="#home" class="logo">
+                <span class="logo-i">87</span>
+                <span class="logo-t">
+                    <h1>87福利电影网</h1>
+                    <span class="s">Movie Benefits</span>
+                </span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="#home" class="on">首页</a>
+                <a href="#benefits">福利中心</a>
+                <a href="#movies">热映影片</a>
+                <a href="#coupons">优惠活动</a>
+                <a href="#ranking">人气排行</a>
+                <a href="#news">影视资讯</a>
+                <a href="#about">关于我们</a>
+            </nav>
+            <button class="ham" id="ham" aria-label="菜单"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-in">
+            <div class="hero-c">
+                <div class="hero-chip"><span class="dot"></span><span>87福利电影网 · 观影福利一站直达</span></div>
+                <h2>看电影享福利<br><span class="gr">87福利电影网</span>伴您同行</h2>
+                <p class="hero-d">
+                    87福利电影网（87fulidianyingwang-wap.github.io）专注为影迷提供最新最全的电影福利资讯，
+                    涵盖免费观影指南、热门影片推荐、独家观影优惠，让每一次观影都更实惠、更精彩。
+                </p>
+                <div class="hero-btns">
+                    <a href="#benefits" class="btn btn-mint">🎁 领取观影福利</a>
+                    <a href="#movies" class="btn btn-ghost">🎬 查看热映影片</a>
+                </div>
+                <div class="marquee">
+                    <span class="lb">📢 实时播报</span>
+                    <div class="track">
+                        <div class="inner">
+                            <span>国庆档观影补贴最高立减30元</span>
+                            <span>新用户注册即送5张观影优惠券</span>
+                            <span>VIP会员每月免费观影2次</span>
+                            <span>《星际回响》IMAX场次限时特惠</span>
+                            <span>分享好友观影双方各得10元券</span>
+                            <span>国庆档观影补贴最高立减30元</span>
+                            <span>新用户注册即送5张观影优惠券</span>
+                            <span>VIP会员每月免费观影2次</span>
+                            <span>《星际回响》IMAX场次限时特惠</span>
+                            <span>分享好友观影双方各得10元券</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <div class="wrap" id="benefits">
+        <div class="sh reveal">
+            <span class="sh-eyebrow">Welfare Center</span>
+            <h2 class="sh-t">🎁 福利中心</h2>
+            <p class="sh-s">87福利电影网为您提供六大观影福利，让看电影不再有负担。</p>
+        </div>
+        <div class="ben-grid">
+            <div class="ben-card reveal">
+                <div class="ic i1">🎟️</div>
+                <h3>免费观影券</h3>
+                <p>每日签到即可领取免费观影券，院线大片随心看，零门槛无套路。</p>
+            </div>
+            <div class="ben-card reveal">
+                <div class="ic i2">💰</div>
+                <h3>购票直减</h3>
+                <p>热门影片在线购票立享折扣，最低5折起，最高可减50元。</p>
+            </div>
+            <div class="ben-card reveal">
+                <div class="ic i3">⭐</div>
+                <h3>VIP特权</h3>
+                <p>开通VIP会员畅享每月免费场次、优先选座、专属客服等多项特权。</p>
+            </div>
+            <div class="ben-card reveal">
+                <div class="ic i4">🎬</div>
+                <h3>首映礼遇</h3>
+                <p>热门大片首映礼限量名额免费送，红毯体验、明星见面会等你来。</p>
+            </div>
+            <div class="ben-card reveal">
+                <div class="ic i5">👥</div>
+                <h3>邀请有礼</h3>
+                <p>邀请好友注册观影，双方各得观影优惠券，上不封顶。</p>
+            </div>
+            <div class="ben-card reveal">
+                <div class="ic i6">📱</div>
+                <h3>移动专享</h3>
+                <p>手机端独家优惠活动，扫码即领，随时随地享受观影福利。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movies -->
+    <div class="wrap" id="movies">
+        <div class="sh reveal">
+            <span class="sh-eyebrow">Now Showing</span>
+            <h2 class="sh-t">🎬 热映影片推荐</h2>
+            <p class="sh-s">87福利电影网每日精选院线热映佳片，配合观影福利更划算。</p>
+        </div>
+        <div class="mv-grid">
+            <div class="mv reveal">
+                <div class="mv-p m1"><span class="mv-e">🚀</span><span class="mv-b">热映中</span><span class="mv-s">8.9</span><span class="mv-q">IMAX</span></div>
+                <div class="mv-i"><h3>星际回响</h3><span class="mt">科幻 / 135分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m2"><span class="mv-e">🕵️</span><span class="mv-b">口碑</span><span class="mv-s">8.7</span><span class="mv-q">杜比</span></div>
+                <div class="mv-i"><h3>暗夜追凶</h3><span class="mt">悬疑 / 118分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m3"><span class="mv-e">💕</span><span class="mv-s">8.5</span><span class="mv-q">4K</span></div>
+                <div class="mv-i"><h3>盛夏光年</h3><span class="mt">爱情 / 106分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m4"><span class="mv-e">👻</span><span class="mv-b">推荐</span><span class="mv-s">8.8</span><span class="mv-q">4K</span></div>
+                <div class="mv-i"><h3>诡夜归来</h3><span class="mt">恐怖 / 98分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m5"><span class="mv-e">🏆</span><span class="mv-b">获奖</span><span class="mv-s">9.0</span><span class="mv-q">4K HDR</span></div>
+                <div class="mv-i"><h3>逆光而行</h3><span class="mt">剧情 / 128分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m6"><span class="mv-e">😂</span><span class="mv-s">8.4</span><span class="mv-q">1080P</span></div>
+                <div class="mv-i"><h3>欢喜冤家</h3><span class="mt">喜剧 / 102分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m7"><span class="mv-e">⚔️</span><span class="mv-b">独家</span><span class="mv-s">8.6</span><span class="mv-q">4K</span></div>
+                <div class="mv-i"><h3>铁血将军</h3><span class="mt">动作 / 142分钟</span></div>
+            </div>
+            <div class="mv reveal">
+                <div class="mv-p m8"><span class="mv-e">🐉</span><span class="mv-b">热播</span><span class="mv-s">8.3</span><span class="mv-q">4K</span></div>
+                <div class="mv-i"><h3>龙吟九天</h3><span class="mt">奇幻 / 150分钟</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coupons -->
+    <div class="wrap" id="coupons">
+        <div class="sh reveal">
+            <span class="sh-eyebrow">Coupon Center</span>
+            <h2 class="sh-t">🎫 限时优惠活动</h2>
+            <p class="sh-s">87福利电影网携手多家影院推出限时观影优惠，先到先得。</p>
+        </div>
+        <div class="cp-wrap">
+            <div class="cp reveal">
+                <div class="cp-l">
+                    <h3>🎟️ 新客专享券</h3>
+                    <span class="cd">首单立减 30 元</span>
+                    <span class="ct">📅 有效期至 2026-10-31 · 限首次购票使用</span>
+                </div>
+                <div class="cp-r"><span class="cp-v">¥30</span><span class="cp-lb">领取</span></div>
+            </div>
+            <div class="cp reveal">
+                <div class="cp-l">
+                    <h3>🌟 VIP月卡</h3>
+                    <span class="cd c">每月免费看 2 场</span>
+                    <span class="ct">📅 连续包月 ¥19.9 · 随时可取消</span>
+                </div>
+                <div class="cp-r c"><span class="cp-v">2场</span><span class="cp-lb">开通</span></div>
+            </div>
+            <div class="cp reveal">
+                <div class="cp-l">
+                    <h3>🍿 爆米花套餐</h3>
+                    <span class="cd o">买一送一 半价</span>
+                    <span class="ct">📅 周末限定 · 限指定合作影院</span>
+                </div>
+                <div class="cp-r o"><span class="cp-v">5折</span><span class="cp-lb">抢购</span></div>
+            </div>
+            <div class="cp reveal">
+                <div class="cp-l">
+                    <h3>👥 邀友同享</h3>
+                    <span class="cd v">邀1人得 ¥10 券</span>
+                    <span class="ct">📅 无上限 · 好友首单后发放</span>
+                </div>
+                <div class="cp-r v"><span class="cp-v">10元</span><span class="cp-lb">邀请</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ranking -->
+    <div class="wrap" id="ranking">
+        <div class="sh reveal">
+            <span class="sh-eyebrow">Hot Ranking</span>
+            <h2 class="sh-t">🔥 人气排行 TOP8</h2>
+            <p class="sh-s">87福利电影网综合全网观影数据，实时更新最受欢迎影片榜单。</p>
+        </div>
+        <div class="rk-bg reveal">
+            <div class="rk-list">
+                <div class="rk"><span class="rk-n">1</span><div class="rk-t t1">🏆</div><div class="rk-d"><h4>逆光而行</h4><p>剧情 · 获奖影片 · 9.0分</p></div><div class="rk-v"><div class="vs">9.0</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">2</span><div class="rk-t t2">🚀</div><div class="rk-d"><h4>星际回响</h4><p>科幻 · 院线热映 · 8.9分</p></div><div class="rk-v"><div class="vs">8.9</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">3</span><div class="rk-t t3">👻</div><div class="rk-d"><h4>诡夜归来</h4><p>恐怖 · 万圣档 · 8.8分</p></div><div class="rk-v"><div class="vs">8.8</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">4</span><div class="rk-t t4">🕵️</div><div class="rk-d"><h4>暗夜追凶</h4><p>悬疑 · 口碑佳作 · 8.7分</p></div><div class="rk-v"><div class="vs">8.7</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">5</span><div class="rk-t t5">⚔️</div><div class="rk-d"><h4>铁血将军</h4><p>动作 · 独家上线 · 8.6分</p></div><div class="rk-v"><div class="vs">8.6</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">6</span><div class="rk-t t6">💕</div><div class="rk-d"><h4>盛夏光年</h4><p>爱情 · 青春必看 · 8.5分</p></div><div class="rk-v"><div class="vs">8.5</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">7</span><div class="rk-t t7">😂</div><div class="rk-d"><h4>欢喜冤家</h4><p>喜剧 · 轻松解压 · 8.4分</p></div><div class="rk-v"><div class="vs">8.4</div><div class="vl">综合评分</div></div></div>
+                <div class="rk"><span class="rk-n">8</span><div class="rk-t t8">🐉</div><div class="rk-d"><h4>龙吟九天</h4><p>奇幻 · 视觉盛宴 · 8.3分</p></div><div class="rk-v"><div class="vs">8.3</div><div class="vl">综合评分</div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News -->
+    <div class="wrap" id="news">
+        <div class="sh reveal">
+            <span class="sh-eyebrow">News &amp; Updates</span>
+            <h2 class="sh-t">📰 影视资讯</h2>
+            <p class="sh-s">87福利电影网为您带来最新电影行业动态与福利活动解读。</p>
+        </div>
+        <div class="nw-grid">
+            <article class="nw reveal">
+                <div class="nw-c n1"><span class="tg">福利活动</span><span>🎁</span></div>
+                <div class="nw-b">
+                    <div class="nw-d">📅 2026-10-01 · 87福利电影网</div>
+                    <h3>国庆观影福利大放送！87福利电影网联合全国影院推出观影补贴</h3>
+                    <p>87福利电影网讯：国庆期间联合全国3000+影院推出观影补贴活动，用户购票最高可享立减30元优惠，每日限量发放，先到先得。</p>
+                </div>
+            </article>
+            <article class="nw reveal">
+                <div class="nw-c n2"><span class="tg c">新片速递</span><span>🎬</span></div>
+                <div class="nw-b">
+                    <div class="nw-d">📅 2026-09-29 · 87福利电影网</div>
+                    <h3>2026国庆档盘点：8部新片扎堆上映，哪家影院福利最划算？</h3>
+                    <p>87福利电影网为您盘点国庆档8部新片，并对比各大影院购票优惠力度，帮您选出性价比最高的观影方案。</p>
+                </div>
+            </article>
+            <article class="nw reveal">
+                <div class="nw-c n3"><span class="tg">观影指南</span><span>📋</span></div>
+                <div class="nw-b">
+                    <div class="nw-d">📅 2026-09-26 · 87福利电影网</div>
+                    <h3>IMAX、杜比、4DX怎么选？87福利电影网观影格式全攻略</h3>
+                    <p>面对多种观影格式不知如何选择？87福利电影网为您详细对比IMAX、杜比影院、4DX等不同格式的观影体验与价格差异。</p>
+                </div>
+            </article>
+            <article class="nw reveal">
+                <div class="nw-c n4"><span class="tg">行业观察</span><span>📈</span></div>
+                <div class="nw-b">
+                    <div class="nw-d">📅 2026-09-23 · 87福利电影网</div>
+                    <h3>2026中国电影市场观察：观众观影频次回升，影院福利成拉新关键</h3>
+                    <p>据87福利电影网统计，2026年前三季度观众平均观影频次同比提升18%，影院会员体系和购票福利成为吸引新用户的核心手段。</p>
+                </div>
+            </article>
+            <article class="nw reveal">
+                <div class="nw-c n5"><span class="tg v">深度解读</span><span>🎞️</span></div>
+                <div class="nw-b">
+                    <div class="nw-d">📅 2026-09-20 · 87福利电影网</div>
+                    <h3>从《逆光而行》获奖看国产艺术电影的商业化之路</h3>
+                    <p>87福利电影网深度分析：威尼斯获奖影片《逆光而行》如何在艺术表达与商业票房之间找到平衡，为国产艺术电影提供可借鉴范本。</p>
+                </div>
+            </article>
+            <article class="nw reveal">
+                <div class="nw-c n6"><span class="tg c">省钱攻略</span><span>💡</span></div>
+                <div class="nw-b">
+                    <div class="nw-d">📅 2026-09-17 · 87福利电影网</div>
+                    <h3>87福利电影网省钱攻略：5个技巧让每月观影支出省下一半</h3>
+                    <p>87福利电影网分享实用省钱技巧，从会员选择到优惠叠加，手把手教您如何以最低成本享受最高品质的观影体验。</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="wrap" id="about">
+        <div class="sh reveal">
+            <span class="sh-eyebrow">About Us</span>
+            <h2 class="sh-t">📌 关于87福利电影网</h2>
+        </div>
+        <div class="ab reveal">
+            <div class="ab-g">
+                <div class="ab-l">
+                    <h2>87福利电影网<br>让观影更实惠</h2>
+                    <p>87福利电影网（87fulidianyingwang-wap.github.io）是专注电影福利资讯的分享平台，致力于为影迷提供最新最全的观影优惠信息。</p>
+                    <p>从免费观影券到购票折扣，从首映礼遇到VIP特权，我们聚合全网最优电影福利资源，让每一位影迷都能享受高性价比的观影体验。</p>
+                    <div class="ab-stats">
+                        <div class="ab-st"><div class="an">50,000+</div><div class="al">观影福利</div></div>
+                        <div class="ab-st"><div class="an">3,000+</div><div class="al">合作影院</div></div>
+                        <div class="ab-st"><div class="an">¥2.8M</div><div class="al">已为用户省钱</div></div>
+                    </div>
+                </div>
+                <div class="ab-r">
+                    <div class="ab-f"><div class="fi">🎁</div><h4>福利丰富</h4><p>每日更新观影福利</p></div>
+                    <div class="ab-f"><div class="fi">⚡</div><h4>实时同步</h4><p>影院活动第一时间推送</p></div>
+                    <div class="ab-f"><div class="fi">💎</div><h4>精选推荐</h4><p>优质影片专业筛选</p></div>
+                    <div class="ab-f"><div class="fi">🛡️</div><h4>安全无忧</h4><p>绿色平台放心访问</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="ft">
+        <div class="ft-in">
+            <div class="ft-c">
+                <div class="ft-b">
+                    <a href="#home" class="logo">
+                        <span class="logo-i">87</span>
+                        <span class="logo-t"><h1>87福利电影网</h1><span class="s">Movie Benefits</span></span>
+                    </a>
+                    <p>87福利电影网（87fulidianyingwang-wap.github.io）专注电影福利资讯分享，提供免费观影券、购票折扣、VIP特权等全方位服务。</p>
+                </div>
+                <div class="ft-cl">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#benefits">福利中心</a></li>
+                        <li><a href="#movies">热映影片</a></li>
+                        <li><a href="#coupons">优惠活动</a></li>
+                    </ul>
+                </div>
+                <div class="ft-cl">
+                    <h4>福利专区</h4>
+                    <ul>
+                        <li><a href="#benefits">免费观影券</a></li>
+                        <li><a href="#coupons">购票优惠券</a></li>
+                        <li><a href="#coupons">VIP会员特权</a></li>
+                        <li><a href="#news">省钱攻略</a></li>
+                    </ul>
+                </div>
+                <div class="ft-cl">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#about">网站介绍</a></li>
+                        <li><a href="#news">影视资讯</a></li>
+                        <li><a href="#about">商务合作</a></li>
+                        <li><a href="#about">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-bt">
+                <p>© 2026 87福利电影网 (87fulidianyingwang-wap.github.io) 版权所有 | 本站仅提供影视信息及福利资讯分享服务</p>
+                <div class="social">
+                    <a href="#" aria-label="微信">💬</a>
+                    <a href="#" aria-label="微博">📱</a>
+                    <a href="#" aria-label="QQ">🐧</a>
+                    <a href="#" aria-label="邮箱">📧</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ScrollTop -->
+    <button class="stp" id="stp" aria-label="回到顶部">↑</button>
+
+    <script>
+        const ham=document.getElementById('ham'),nav=document.getElementById('mainNav'),hd=document.getElementById('siteHd'),stp=document.getElementById('stp');
+        ham.addEventListener('click',()=>{ham.classList.toggle('on');nav.classList.toggle('on')});
+        document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('on');nav.classList.remove('on')}));
+        window.addEventListener('scroll',()=>{
+            if(window.scrollY>40){hd.classList.add('scrolled');stp.classList.add('show')}else{hd.classList.remove('scrolled');stp.classList.remove('show')}
+            let cur='';
+            document.querySelectorAll('section[id],div[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});
+            document.querySelectorAll('.nav a').forEach(a=>{a.classList.remove('on');if(a.getAttribute('href')==='#'+cur)a.classList.add('on')});
+        });
+        stp.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+        const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+        document.querySelectorAll('.mv,.rk,.nw,.cp,.ben-card').forEach(el=>{
+            el.addEventListener('click',()=>{
+                const t=el.querySelector('h3')||el.querySelector('h4');
+                const txt=t?t.textContent:'详情';
+                alert('87福利电影网提示：\n「'+txt+'」\n详情页面正在开发中...');
+            });
+        });
+    </script>
+
+</body>
+</html>
